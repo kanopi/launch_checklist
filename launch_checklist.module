@@ -5,12 +5,16 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
+use Drupal\checklistapi\ChecklistapiChecklist;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
 /**
  * Implements hook_checklistapi_checklist_info().
  *
  * @see _launch_checklist_preprocess_checklist_items()
  */
-function launch_checklist_checklistapi_checklist_info(): array {
+function launch_checklist_checklistapi_checklist_info() {
   $definitions = [];
   $definitions['launch_checklist'] = [
     '#title' => t('Launch checklist'),
@@ -25,26 +29,67 @@ function launch_checklist_checklistapi_checklist_info(): array {
 /**
  * Implements callback_checklistapi_checklist_items() for launch_checklist.
  */
-function launch_checklist_checklistapi_checklist_items(): array {
-  /** @var \Drupal\Core\Render\RendererInterface $renderer */
-  $renderer = \Drupal::service('renderer');
+function launch_checklist_checklistapi_checklist_items() {
+  $front_route = Url::fromRoute('<front>');
 
-  $items = [
-    'lists/01-general.inc',
-    'lists/02-browser-checks.inc',
-    'lists/03-forms.inc',
-    'lists/04-seo.inc',
-    'lists/05-user-permissions.inc',
-    'lists/06-content.inc',
-    'lists/07-privacy.inc',
-    'lists/08-performance.inc',
-    'lists/09-security.inc',
-    'lists/10-database.inc',
-    'lists/11-theme.inc',
-    'lists/12-a11y.inc',
-    'lists/13-modules.inc',
-    'lists/14-other.inc',
+  return [
+    // Section 1 General.
+    '01_general' => [
+      '#title' => t('General'),
+      '#description' => t('<p>General settings for the Drupal site.</p>'),
+      'site_information_email' => [
+        '#title' => t('Verify the site information uses client email'),
+        '#description' => t('The From address in automated emails sent during registration and new password requests, and other notifications.'),
+        'handbook_page' => [
+          '#text' => t('Site Information Email'),
+          '#url' => Url::fromRoute('system.site_information_settings'),
+        ],
+      ],
+      'site_information_name' => [
+        '#title' => t('Verify the site title tag is correct'),
+        '#description' => t('Make sure the Site name field is correct.'),
+        'handbook_page' => [
+          '#text' => t('Site Information Name'),
+          '#url' => Url::fromRoute('system.site_information_settings'),
+        ],
+      ],
+      'favicon' => [
+        '#title' => t('Favicon'),
+        '#description' => t('Verify Favicon is correct.'),
+        'handbook_page' => [
+          '#text' => t('Front page of site.'),
+          '#url' => $front_route,
+        ],
+      ],
+    ],
+    // Section 2 Browser Checks.
+    '02_browser_checks' => [
+      '#title' => t('Browser Checks'),
+      '#description' => t('<p>General settings for the Drupal site.</p>'),
+      'site_information_email' => [
+        '#title' => t('Verify the site information uses client email'),
+        '#description' => t('The From address in automated emails sent during registration and new password requests, and other notifications.'),
+        'handbook_page' => [
+          '#text' => t('Site Information Email'),
+          '#url' => Url::fromRoute('system.site_information_settings'),
+        ],
+      ],
+      'site_information_name' => [
+        '#title' => t('Verify the site title tag is correct'),
+        '#description' => t('Make sure the Site name field is correct.'),
+        'handbook_page' => [
+          '#text' => t('Site Information Name'),
+          '#url' => Url::fromRoute('system.site_information_settings'),
+        ],
+      ],
+      'favicon' => [
+        '#title' => t('Favicon'),
+        '#description' => t('Verify Favicon is correct.'),
+        'handbook_page' => [
+          '#text' => t('Front page of site.'),
+          '#url' => $front_route,
+        ],
+      ],
+    ],
   ];
-
-  return _launch_checklist_preprocess_checklist_items($items);
 }
