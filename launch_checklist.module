@@ -66,28 +66,20 @@ function launch_checklist_checklistapi_checklist_items() {
     '02_browser_checks' => [
       '#title' => t('Browser Checks'),
       '#description' => t('<p>General settings for the Drupal site.</p>'),
-      'site_information_email' => [
-        '#title' => t('Verify the site information uses client email'),
-        '#description' => t('The From address in automated emails sent during registration and new password requests, and other notifications.'),
+      'desktop' => [
+        '#title' => t('Verify the site looks and behaves as exprected on Desktop'),
+        '#description' => t('Test on the latest two versions of browsers, including Google Chrome, Mozilla Firefox, Safari, Internet Explorer, Edge and Opera'),
         'handbook_page' => [
-          '#text' => t('Site Information Email'),
-          '#url' => Url::fromRoute('system.site_information_settings'),
+          '#text' => t('Use a Cross Browser Testing Tool like Browserstack'),
+          '#url' => Url::fromUri('https://www.browserstack.com/'),
         ],
       ],
-      'site_information_name' => [
-        '#title' => t('Verify the site title tag is correct'),
-        '#description' => t('Make sure the Site name field is correct.'),
+      'mobile' => [
+        '#title' => t('Verify the site looks and behaves as exprected on mobile'),
+        '#description' => t('Testing should also be completed on mobile devices including: Apple iPad, Apple iPhone, Samsung Galaxy SIII, Nexus, Google Nexus 7, Amazon Kindle Fire, Droid Razr 4G, Blackberry, Amazon Silk'),
         'handbook_page' => [
-          '#text' => t('Site Information Name'),
-          '#url' => Url::fromRoute('system.site_information_settings'),
-        ],
-      ],
-      'favicon' => [
-        '#title' => t('Favicon'),
-        '#description' => t('Verify Favicon is correct.'),
-        'handbook_page' => [
-          '#text' => t('Front page of site.'),
-          '#url' => $front_route,
+          '#text' => t('Use a Cross Browser Testing Tool like Browserstack'),
+          '#url' => Url::fromUri('https://www.browserstack.com/'),
         ],
       ],
     ],
