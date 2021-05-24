@@ -30,7 +30,16 @@ function launch_checklist_checklistapi_checklist_info() {
  * Implements callback_checklistapi_checklist_items() for launch_checklist.
  */
 function launch_checklist_checklistapi_checklist_items() {
+  // Home page.
   $front_route = Url::fromRoute('<front>');
+  // Check if module exists.
+  $moduleHandler = \Drupal::service('module_handler');
+  // Webform.
+  $webform_route = '';
+  $webform_route = Url::fromUri('https://www.drupal.org/project/webform');
+  if ($moduleHandler->moduleExists('webform')) {
+    $webform_route = Url::fromRoute('entity.webform.collection');
+  }
 
   return [
     // Section 1 General.
@@ -65,7 +74,7 @@ function launch_checklist_checklistapi_checklist_items() {
     // Section 2 Browser Checks.
     '02_browser_checks' => [
       '#title' => t('Browser Checks'),
-      '#description' => t('<p>General settings for the Drupal site.</p>'),
+      '#description' => t('<p>Verify the look and funcitonality across devices.</p>'),
       'desktop' => [
         '#title' => t('Verify the site looks and behaves as exprected on Desktop'),
         '#description' => t('Test on the latest two versions of browsers, including Google Chrome, Mozilla Firefox, Safari, Internet Explorer, Edge and Opera'),
@@ -81,6 +90,31 @@ function launch_checklist_checklistapi_checklist_items() {
           '#text' => t('Use a Cross Browser Testing Tool like Browserstack'),
           '#url' => Url::fromUri('https://www.browserstack.com/'),
         ],
+      ],
+    ],
+    // Section 3 Forms.
+    '03_forms' => [
+      '#title' => t('Forms'),
+      '#description' => t('<p>Verify forms work as expected.</p>'),
+      'email' => [
+        '#title' => t('Form emails'),
+        '#description' => t('Check all webforms for recipient email and test.'),
+        'handbook_page' => [
+          '#text' => t('Webform'),
+          '#url' => $webform_route,
+        ],
+      ],
+      'confirmation' => [
+        '#title' => t('Form confirmation'),
+        '#description' => t('Check all webforms for thank you message'),
+        'handbook_page' => [
+          '#text' => t('Webform'),
+          '#url' => $webform_route,
+        ],
+      ],
+      'spam' => [
+        '#title' => t('Spam protection'),
+        '#description' => t('Ensure Spam prevention measures are in place.'),
       ],
     ],
   ];
