@@ -40,6 +40,12 @@ function launch_checklist_checklistapi_checklist_items() {
   if ($moduleHandler->moduleExists('webform')) {
     $webform_route = Url::fromRoute('entity.webform.collection');
   }
+   // Google Analytics.
+   $google_analytics_route = '';
+   $google_analytics_route = Url::fromUri('https://www.drupal.org/project/google_analytics');
+   if ($moduleHandler->moduleExists('google_analytics')) {
+     $google_analytics_route = Url::fromRoute('google_analytics.admin_settings_form');
+   }
 
   return [
     // Section 1 General.
@@ -122,14 +128,14 @@ function launch_checklist_checklistapi_checklist_items() {
       '#title' => t('SEO'),
       '#description' => t('<p>SEO settings for the Drupal site.</p>'),
       'analytics' => [
-        '#title' => t('Verify Google Analytics is installed and correct access has been given'),
-        '#description' => t(''),
+        '#title' => t('Analytics'),
+        '#description' => t('Verify Google Analytics or similar is installed and correct access has been given'),
         'handbook_page' => [
-          '#text' => t(''),
-          '#url' => Url::fromRoute(''), //admin/config/system/google-analytics
+          '#text' => t('Google Analytics module'),
+          '#url' => $google_anaytics_route,
         ],
       ],
-      'site_information_name' => [
+      'xml_sitemap' => [
         '#title' => t('Verify the site title tag is correct'),
         '#description' => t('Make sure the Site name field is correct.'),
         'handbook_page' => [
