@@ -117,5 +117,34 @@ function launch_checklist_checklistapi_checklist_items() {
         '#description' => t('Ensure Spam prevention measures are in place.'),
       ],
     ],
+    // Section 4 SEO.
+    '04_seo' => [
+      '#title' => t('SEO'),
+      '#description' => t('<p>SEO settings for the Drupal site.</p>'),
+      'analytics' => [
+        '#title' => t('Verify Google Analytics is installed and correct access has been given'),
+        '#description' => t(''),
+        'handbook_page' => [
+          '#text' => t(''),
+          '#url' => Url::fromRoute(''), //admin/config/system/google-analytics
+        ],
+      ],
+      'site_information_name' => [
+        '#title' => t('Verify the site title tag is correct'),
+        '#description' => t('Make sure the Site name field is correct.'),
+        'handbook_page' => [
+          '#text' => t('Site Information Name'),
+          '#url' => Url::fromRoute('system.site_information_settings'),
+        ],
+      ],
+      'favicon' => [
+        '#title' => t('Favicon'),
+        '#description' => t('Verify Favicon is correct.'),
+        'handbook_page' => [
+          '#text' => t('Front page of site.'),
+          '#url' => $front_route,
+        ],
+      ],
+    ],
   ];
 }
