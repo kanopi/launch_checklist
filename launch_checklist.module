@@ -46,6 +46,18 @@ function launch_checklist_checklistapi_checklist_items() {
 	if ( $moduleHandler->moduleExists( 'google_analytics' ) ) {
 		$google_analytics_route = Url::fromRoute( 'google_analytics.admin_settings_form' );
 	}
+	// XML Sitemap
+	$xml_sitemap = '';
+	$xml_sitemap = Url::fromUri( 'https://www.drupal.org/project/xmlsitemap' );
+	if ( $moduleHandler->moduleExists( 'xmlsitemap' ) ) {
+		$xml_sitemap = Url::fromRoute( 'xmlsitemap.admin_search' );
+	}
+	// Global Redirect module
+	$global_redirect = '';
+	$global_redirect = Url::fromUri( 'https://www.drupal.org/project/globalredirect' );
+	if ( $moduleHandler->moduleExists( 'globalredirect' ) ) {
+		$global_redirect = Url::fromRoute( 'xmlsitemap.admin_search' );
+	}
 
 	return array(
 
@@ -144,12 +156,12 @@ function launch_checklist_checklistapi_checklist_items() {
 				),
 			),
 			'xml_sitemap'            => array(
-				'#title'       => t( 'XML Sitemap' ),
-				'#description' => t( 'Check that the XML sitemap module is enabled and a sitemap has been created.' ),
-		   // 'handbook_page' => [
-		   // '#text' => t('Site Information Name'),
-		   // '#url' => Url::fromRoute('system.site_information_settings'),
-		   // ],
+				'#title'        => t( 'XML Sitemap' ),
+				'#description'  => t( 'Check that the XML sitemap module is enabled and a sitemap has been created.' ),
+				'handbook_page' => array(
+					'#text' => t( 'XML Sitemap' ),
+					'#url'  => $xml_sitemap,
+				),
 			),
 			'title_meta_tags'        => array(
 				'#title'       => t( 'Page Titles and Meta Tags' ),
@@ -160,12 +172,12 @@ function launch_checklist_checklistapi_checklist_items() {
 		   // ],
 			),
 			'global_redirect'        => array(
-				'#title'       => t( 'Global Redirect Module' ),
-				'#description' => t( 'Ensure that the global redirect module is enabled.' ),
-					 // 'handbook_page' => [
-					 // '#text' => t('Front page of site.'),
-					 // '#url' => $front_route,
-					 // ],
+				'#title'        => t( 'Global Redirect Module' ),
+				'#description'  => t( 'Ensure that the global redirect module is enabled.' ),
+				'handbook_page' => array(
+					'#text' => t( 'Front page of site.' ),
+					'#url'  => $front_route,
+				),
 			),
 			'apache_rewrite_rules'   => array(
 				'#title'       => t( 'Apache Rewrite Rules' ),
