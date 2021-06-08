@@ -13,13 +13,13 @@ use Drupal\Core\Url;
  * @see _launch_checklist_preprocess_checklist_items()
  */
 function launch_checklist_checklistapi_checklist_info() {
-  $definitions                     = [];
+  $definitions = [];
   $definitions['launch_checklist'] = [
-    '#title'       => t('Launch checklist'),
+    '#title' => t('Launch checklist'),
     '#description' => t('Keep track of your pre-launch tasks.'),
-    '#path'        => '/admin/config/development/launch-checklist',
-    '#callback'    => 'launch_checklist_checklistapi_checklist_items',
-    '#help'        => t("<p>Check off each task as you complete it. Don't forget to click the <em>Save</em> button!</p>"),
+    '#path' => '/admin/config/development/launch-checklist',
+    '#callback' => 'launch_checklist_checklistapi_checklist_items',
+    '#help' => t("<p>Check off each task as you complete it. Don't forget to click the <em>Save</em> button!</p>"),
   ];
   return $definitions;
 }
@@ -58,642 +58,651 @@ function launch_checklist_checklistapi_checklist_items() {
   }
 
   return [
-
-        // Section 1 General.
-    '01_general'              => [
-      '#title'                 => t('General'),
-      '#description'           => t('<p>General settings for the Drupal site.</p>'),
+    // Section 1 General.
+    '01_general' => [
+      '#title' => t('General'),
+      '#description' => t('<p>General settings for the Drupal site.</p>'),
 
       'site_information_email' => [
-        '#title'        => t('Verify the site information uses client email'),
-        '#description'  => t('The From address in automated emails sent during registration and new password requests, and other notifications.'),
+        '#title' => t('Verify the site information uses client email'),
+        '#description' => t('The From address in automated emails sent during registration and new password requests, and other notifications.'),
         'handbook_page' => [
           '#text' => t('Site Information Email'),
-          '#url'  => Url::fromRoute('system.site_information_settings'),
+          '#url' => Url::fromRoute('system.site_information_settings'),
         ],
       ],
-      'site_information_name'  => [
-        '#title'        => t('Verify the site title tag is correct'),
-        '#description'  => t('Make sure the Site name field is correct.'),
+      'site_information_name' => [
+        '#title' => t('Verify the site title tag is correct'),
+        '#description' => t('Make sure the Site name field is correct.'),
         'handbook_page' => [
           '#text' => t('Site Information Name'),
-          '#url'  => Url::fromRoute('system.site_information_settings'),
+          '#url' => Url::fromRoute('system.site_information_settings'),
         ],
       ],
-      'favicon'                => [
-        '#title'        => t('Favicon'),
-        '#description'  => t('Verify Favicon is correct.'),
+      'favicon' => [
+        '#title' => t('Favicon'),
+        '#description' => t('Verify Favicon is correct.'),
         'handbook_page' => [
           '#text' => t('Front page of site.'),
-          '#url'  => $front_route,
+          '#url' => $front_route,
         ],
       ],
     ],
 
-        // Section 2 Browser Checks.
-    '02_browser_checks'       => [
-      '#title'       => t('Browser Checks'),
+    // Section 2 Browser Checks.
+    '02_browser_checks' => [
+      '#title' => t('Browser Checks'),
       '#description' => t('<p>Verify the look and funcitonality across devices.</p>'),
 
-      'desktop'      => [
-        '#title'        => t('Verify the site looks and behaves as exprected on Desktop'),
-        '#description'  => t('Test on the latest two versions of browsers, including Google Chrome, Mozilla Firefox, Safari, Internet Explorer, Edge and Opera'),
+      'desktop' => [
+        '#title' => t('Verify the site looks and behaves as exprected on Desktop'),
+        '#description' => t('Test on the latest two versions of browsers, including Google Chrome, Mozilla Firefox, Safari, Internet Explorer, Edge and Opera'),
         'handbook_page' => [
           '#text' => t('Use a Cross Browser Testing Tool like Browserstack'),
-          '#url'  => Url::fromUri('https://www.browserstack.com/'),
+          '#url' => Url::fromUri('https://www.browserstack.com/'),
         ],
       ],
-      'mobile'       => [
-        '#title'        => t('Verify the site looks and behaves as exprected on mobile'),
-        '#description'  => t('Testing should also be completed on mobile devices including: Apple iPad, Apple iPhone, Samsung Galaxy SIII, Nexus, Google Nexus 7, Amazon Kindle Fire, Droid Razr 4G, Blackberry, Amazon Silk'),
+      'mobile' => [
+        '#title' => t('Verify the site looks and behaves as exprected on mobile'),
+        '#description' => t('Testing should also be completed on mobile devices including: Apple iPad, Apple iPhone, Samsung Galaxy SIII, Nexus, Google Nexus 7, Amazon Kindle Fire, Droid Razr 4G, Blackberry, Amazon Silk'),
         'handbook_page' => [
           '#text' => t('Use a Cross Browser Testing Tool like Browserstack'),
-          '#url'  => Url::fromUri('https://www.browserstack.com/'),
+          '#url' => Url::fromUri('https://www.browserstack.com/'),
         ],
       ],
     ],
 
-        // Section 3 Forms.
-    '03_forms'                => [
-      '#title'       => t('Forms'),
+    // Section 3 Forms.
+    '03_forms' => [
+      '#title' => t('Forms'),
       '#description' => t('<p>Verify forms work as expected.</p>'),
 
-      'email'        => [
-        '#title'        => t('Form emails'),
-        '#description'  => t('Check all webforms for recipient email and test.'),
+      'email' => [
+        '#title' => t('Form emails'),
+        '#description' => t('Check all webforms for recipient email and test.'),
         'handbook_page' => [
           '#text' => t('Webform'),
-          '#url'  => $webform_route,
+          '#url' => $webform_route,
         ],
       ],
       'confirmation' => [
-        '#title'        => t('Form confirmation'),
-        '#description'  => t('Check all webforms for thank you message'),
+        '#title' => t('Form confirmation'),
+        '#description' => t('Check all webforms for thank you message'),
         'handbook_page' => [
           '#text' => t('Webform'),
-          '#url'  => $webform_route,
+          '#url' => $webform_route,
         ],
       ],
-      'spam'         => [
-        '#title'       => t('Spam protection'),
+      'spam' => [
+        '#title' => t('Spam protection'),
         '#description' => t('Ensure Spam prevention measures are in place.'),
       ],
     ],
 
-        // Section 4 SEO.
-    '04_seo'                  => [
-      '#title'                 => t('SEO'),
-      '#description'           => t('<p>SEO settings for the Drupal site.</p>'),
+    // Section 4 SEO.
+    '04_seo' => [
+      '#title' => t('SEO'),
+      '#description' => t('<p>SEO settings for the Drupal site.</p>'),
 
-      'analytics'              => [
-        '#title'        => t('Analytics'),
-        '#description'  => t('Verify Google Analytics or similar is installed and correct access has been given'),
+      'analytics' => [
+        '#title' => t('Analytics'),
+        '#description' => t('Verify Google Analytics or similar is installed and correct access has been given'),
         'handbook_page' => [
           '#text' => t('Google Analytics module'),
-          '#url'  => $google_analytics_route,
+          '#url' => $google_analytics_route,
         ],
       ],
-      'xml_sitemap'            => [
-        '#title'        => t('XML Sitemap'),
-        '#description'  => t('Check that the XML sitemap module is enabled and a sitemap has been created.'),
+      'xml_sitemap' => [
+        '#title' => t('XML Sitemap'),
+        '#description' => t('Check that the XML sitemap module is enabled and a sitemap has been created.'),
         'handbook_page' => [
           '#text' => t('XML Sitemap'),
-          '#url'  => $xml_sitemap,
+          '#url' => $xml_sitemap,
         ],
       ],
-      'title_meta_tags'        => [
-        '#title'       => t('Page Titles and Meta Tags'),
+      'title_meta_tags' => [
+        '#title' => t('Page Titles and Meta Tags'),
         '#description' => t('Ensure that page titles and meta tags are set up.'),
-            // 'handbook_page' => [
-            // '#text' => t('Front page of site.'),
-            // '#url' => $front_route,
-            // ],
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'global_redirect'        => [
-        '#title'        => t('Global Redirect Module'),
-        '#description'  => t('Ensure that the global redirect module is enabled.'),
+      'global_redirect' => [
+        '#title' => t('Global Redirect Module'),
+        '#description' => t('Ensure that the global redirect module is enabled.'),
         'handbook_page' => [
           '#text' => t('Front page of site.'),
-          '#url'  => $front_route,
+          '#url' => $front_route,
         ],
       ],
-      'apache_rewrite_rules'   => [
-        '#title'       => t('Apache Rewrite Rules'),
+      'apache_rewrite_rules' => [
+        '#title' => t('Apache Rewrite Rules'),
         '#description' => t('Ensure that one of the rewirte rules in the Apache directives is uncommented, so either traffic to www or vice versa.'),
-                     // 'handbook_page' => [
-                     // '#text' => t('Front page of site.'),
-                     // '#url' => $front_route,
-                     // ],
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
       'htaccess_rewrite_rules' => [
-        '#title'       => t('.htaccess Rewrite Rules'),
+        '#title' => t('.htaccess Rewrite Rules'),
         '#description' => t('Ensure that there is a rewrite rule in the .htaccess file which redirects any temporary / alternate urls (eg. wwww.<site-name>.com).'),
-                     // 'handbook_page' => [
-                     // '#text' => t('Front page of site.'),
-                     // '#url' => $front_route,
-                     // ],
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'schema_settings'        => [
-        '#title'       => t('Schema.org Settings'),
+      'schema_settings' => [
+        '#title' => t('Schema.org Settings'),
         '#description' => t('Ensure that the schema.org settings are complete for all content types.'),
-                     // 'handbook_page' => [
-                     // '#text' => t('Front page of site.'),
-                     // '#url' => $front_route,
-                     // ],
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
     ],
 
-        // Section 5 User Permissions.
-    '05_user_permissions'     => [
-      '#title'                => t('User Permissions'),
-      '#description'          => t('<p>User Permission settings for the Drupal site.</p>'),
+    // Section 5 User Permissions.
+    '05_user_permissions' => [
+      '#title' => t('User Permissions'),
+      '#description' => t('<p>User Permission settings for the Drupal site.</p>'),
 
-      'manager_permissions'   => [
-        '#title'       => t('Manager Permissions'),
+      'manager_permissions' => [
+        '#title' => t('Manager Permissions'),
         '#description' => t('Ensure managers have the ability to manage users.'),
-            // 'handbook_page' => array(
-            // '#text' => t( 'Google Analytics module' ),
-            // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
       'user_sign_up_settings' => [
-        '#title'       => t('User Sign Up Settings'),
+        '#title' => t('User Sign Up Settings'),
         '#description' => t("Check user sign up settings and ensure users can't sign up without approval."),
-                     // 'handbook_page' => [
-                     // '#text' => t('Front page of site.'),
-                     // '#url' => $front_route,
-                     // ],
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'all_user_permissions'  => [
-        '#title'       => t('All User Permissions'),
+      'all_user_permissions' => [
+        '#title' => t('All User Permissions'),
         '#description' => t('Check all user permissions and ensure all roles have relevant permissions.'),
-                     // 'handbook_page' => [
-                     // '#text' => t('Front page of site.'),
-                     // '#url' => $front_route,
-                     // ],
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'relevant_roles'        => [
-        '#title'       => t('Relevant Roles'),
+      'relevant_roles' => [
+        '#title' => t('Relevant Roles'),
         '#description' => t('Ensure all (relevant) roles have the ability to login and logout.'),
-                               // 'handbook_page' => [
-                               // '#text' => t('Front page of site.'),
-                               // '#url' => $front_route,
-                               // ],
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
     ],
 
-        // Section 6 Content.
-    '06_content'              => [
-      '#title'             => t('Content'),
-      '#description'       => t('<p>Content settings for the Drupal site.</p>'),
+    // Section 6 Content.
+    '06_content' => [
+      '#title' => t('Content'),
+      '#description' => t('<p>Content settings for the Drupal site.</p>'),
 
-      'content_redirects'  => [
-        '#title'       => t('Content Redirects'),
+      'content_redirects' => [
+        '#title' => t('Content Redirects'),
         '#description' => t('Ensure that content redirects are in place.'),
-            // 'handbook_page' => array(
-            // '#text' => t( 'Google Analytics module' ),
-            // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'manage_content'     => [
-        '#title'       => t('Manager Role and Content'),
+      'manage_content' => [
+        '#title' => t('Manager Role and Content'),
         '#description' => t('Ensure managers have the ability to manage content.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
       'user_roles_content' => [
-        '#title'       => t('User Roles and Content Creation'),
+        '#title' => t('User Roles and Content Creation'),
         '#description' => t('Sign in as each user role and check that they are able to create the content that they need to.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
       'user_content_entry' => [
-        '#title'       => t('User Roles and Content Types'),
+        '#title' => t('User Roles and Content Types'),
         '#description' => t('Test creating each content type as each user role and ensure that all available buttons on the WYSIWYG editor work (eg. make sure inserted images show or that when using the quote button the correct result is seen when saved).'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'input_formats'      => [
-        '#title'       => t('Input Formats'),
+      'input_formats' => [
+        '#title' => t('Input Formats'),
         '#description' => t('Check the input formats and ensure all user roles have the relevant format.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'anonymous_users'    => [
-        '#title'       => t('Anonymous User Content'),
+      'anonymous_users' => [
+        '#title' => t('Anonymous User Content'),
         '#description' => t('Ensure that anonymous users are only allowed to use the plain-text input formats (if relevant to this site).'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'wysiwyg_profiles'   => [
-        '#title'       => t('WYSIWYG Profiles'),
+      'wysiwyg_profiles' => [
+        '#title' => t('WYSIWYG Profiles'),
         '#description' => t('Check all of the WYSIWYG profiles.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'wysiwyg_security'   => [
-        '#title'       => t('WYSIWYG Security Settings'),
+      'wysiwyg_security' => [
+        '#title' => t('WYSIWYG Security Settings'),
         '#description' => t('Ensure that the security settings are appropriate and coincide with the settings for the selected input format(s).'),
-            // 'handbook_page' => array(
-            // '#text' => t( 'Google Analytics module' ),
-            // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
-      'wysiwyg_toolbar'    => [
-        '#title'       => t('WYSIWYG Toolbar'),
+      'wysiwyg_toolbar' => [
+        '#title' => t('WYSIWYG Toolbar'),
         '#description' => t('Ensure that enabled toolbar buttons coincide with the list of allowed HTML tags in the selected input format(s).'),
-            // 'handbook_page' => array(
-            // '#text' => t( 'Google Analytics module' ),
-            // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => [
+        // '#text' => t('Front page of site.'),
+        // '#url' => $front_route,
+        // ],
       ],
       'wysiwyg_plain_text' => [
-        '#title'       => t('WYSIWYG Plain Text'),
+        '#title' => t('WYSIWYG Plain Text'),
         '#description' => t('Ensure that forced pasting as plain text is enabled.'),
-            // 'handbook_page' => array(
-            // '#text' => t( 'Google Analytics module' ),
-            // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'search_replace'     => [
-        '#title'       => t('Search and Replace Testbed URLs'),
+      'search_replace' => [
+        '#title' => t('Search and Replace Testbed URLs'),
         '#description' => t('Do a global search of the database for any testbed URLs in the content (eg. dev.<domain-name>.com) and replace with the real domain name.'),
-            // 'handbook_page' => array(
-            // '#text' => t( 'Google Analytics module' ),
-            // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
     ],
 
-        // Section 7 GDPR and Privacy.
-    '07_gdpr_privacy'         => [
-      '#title'                 => t('GDPR and Privacy'),
-      '#description'           => t('<p>GDPR and Privacy settings for the Drupal site.</p>'),
+    // Section 7 GDPR and Privacy.
+    '07_gdpr_privacy' => [
+      '#title' => t('GDPR and Privacy'),
+      '#description' => t('<p>GDPR and Privacy settings for the Drupal site.</p>'),
 
-      'approved_language'      => [
-        '#title'       => t('Approved Laangauge Notification'),
+      'approved_language' => [
+        '#title' => t('Approved Laangauge Notification'),
         '#description' => t('Include the approved language in the notification window.'),
-            // 'handbook_page' => array(
-            // '#text' => t( 'Google Analytics module' ),
-            // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'privacy_policy'         => [
-        '#title'       => t('Privacy Policy'),
+      'privacy_policy' => [
+        '#title' => t('Privacy Policy'),
         '#description' => t('Make sure a Privacy Policy exists and that there is a link to it.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
       'privacy_policy_cookies' => [
-        '#title'       => t('Privacy Policy Cookies'),
+        '#title' => t('Privacy Policy Cookies'),
         '#description' => t('Ensure the privacy policy accurately specifies the cookies that the site serves.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'gdpr_testing'           => [
-        '#title'       => t('GDPR Testing'),
+      'gdpr_testing' => [
+        '#title' => t('GDPR Testing'),
         '#description' => t('Perform GDPR testing on the final hosting solution.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
     ],
 
-        // Section 8 Performance and Security.
+    // Section 8 Performance and Security.
     '08_performance_security' => [
-      '#title'             => t('Performance and Security'),
-      '#description'       => t('<p>Performance and Security settings for the Drupal site.</p>'),
+      '#title' => t('Performance and Security'),
+      '#description' => t('<p>Performance and Security settings for the Drupal site.</p>'),
 
-      'load_testing'       => [
-        '#title'       => t('Load Testing'),
+      'load_testing' => [
+        '#title' => t('Load Testing'),
         '#description' => t('Run load tests to ensure the site can easily withstand traffic spikes.'),
-                        // 'handbook_page' => array(
-                        // '#text' => t( 'Google Analytics module' ),
-                        // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
       'xhprof_performance' => [
-        '#title'       => t('Profiling Pages with XHProf'),
+        '#title' => t('Profiling Pages with XHProf'),
         '#description' => t('Profiling pages using XHProf to root out any performance killing bottlenecks.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'page_caching'       => [
-        '#title'       => t('Page Caching'),
+      'page_caching' => [
+        '#title' => t('Page Caching'),
         '#description' => t('Ensure that page caching is enabled.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'css_aggregation'    => [
-        '#title'       => t('CSS Aggregation and Compression'),
+      'css_aggregation' => [
+        '#title' => t('CSS Aggregation and Compression'),
         '#description' => t('Ensure that CSS aggregation and compression is enabled.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'js_aggregation'     => [
-        '#title'       => t('JS aggregation'),
+      'js_aggregation' => [
+        '#title' => t('JS aggregation'),
         '#description' => t('Ensure that JS aggregation is enabled.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'visibility'         => [
-        '#title'       => t('Visibility'),
+      'visibility' => [
+        '#title' => t('Visibility'),
         '#description' => t('Check the visibility setting for every enabled block and make sure that the visibility (pages/content types/roles/users) is restricted appropriately.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'php_filter'         => [
-        '#title'       => t('PHP Filter'),
+      'php_filter' => [
+        '#title' => t('PHP Filter'),
         '#description' => t('Ensure that the PHP filter is disabled.'),
-                      // 'handbook_page' => array(
-                      // '#text' => t( 'Google Analytics module' ),
-                      // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'block_caching'      => [
-        '#title'       => t('Block Caching'),
+      'block_caching' => [
+        '#title' => t('Block Caching'),
         '#description' => t('Ensure that block caching is turned on, if possible.'),
-                                // 'handbook_page' => array(
-                                // '#text' => t( 'Google Analytics module' ),
-                                // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'min_max_cache'      => [
-        '#title'       => t('Min/Max Cache Lifetime'),
+      'min_max_cache' => [
+        '#title' => t('Min/Max Cache Lifetime'),
         '#description' => t('Ensure that the minimum/maximium cache lifetime are set if/as necessary.'),
-                                // 'handbook_page' => array(
-                                // '#text' => t( 'Google Analytics module' ),
-                                // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'unused_modules'     => [
-        '#title'       => t('Unused Modules'),
+      'unused_modules' => [
+        '#title' => t('Unused Modules'),
         '#description' => t('Ensure that all modules not in use are disabled and uninstalled.'),
-                                // 'handbook_page' => array(
-                                // '#text' => t( 'Google Analytics module' ),
-                                // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'dev_modules'        => [
-        '#title'       => t('Development Modules'),
+      'dev_modules' => [
+        '#title' => t('Development Modules'),
         '#description' => t('Ensure that development modules (eg. Views/UI/Rules UI) are disabled. The UI modules should only be enabled when they are actually being used and disabled again afterwards.'),
-                                // 'handbook_page' => array(
-                                // '#text' => t( 'Google Analytics module' ),
-                                // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'tracking_modules'   => [
-        '#title'       => t('Tracking Modules'),
+      'tracking_modules' => [
+        '#title' => t('Tracking Modules'),
         '#description' => t('Ensure modules such as Statistics and Tracker (and any other logging modules) are disabled (unless absolutely necessary or as requested by a client) to reduce overhead on every page load.'),
-                                // 'handbook_page' => array(
-                                // '#text' => t( 'Google Analytics module' ),
-                                // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'upload_fields'      => [
-        '#title'       => t('Audit Upload Fields'),
+      'upload_fields' => [
+        '#title' => t('Audit Upload Fields'),
         '#description' => t('Audit fields that allow for upload and make sure they do not allow the following unsafe extensions: flv, swf, exe, html, htm, php, phtml, py, js, vb, vbe, vbs.'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
-      'base_url'           => [
-        '#title'       => t('Base URL'),
+      'base_url' => [
+        '#title' => t('Base URL'),
         '#description' => t('Ensure that the settings.php file includes a defined base URL.'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
-      'security_kit'       => [
-        '#title'       => t('Security Kit Module'),
+      'security_kit' => [
+        '#title' => t('Security Kit Module'),
         '#description' => t('Install the security kit module and configure appropriately for security hardening.'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
-      'security_review'    => [
-        '#title'       => t('Security Review Module'),
+      'security_review' => [
+        '#title' => t('Security Review Module'),
         '#description' => t('Evaluate the site using the security review module.'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
-      'views_permissions'  => [
-        '#title'       => t('Views Permissions'),
+      'views_permissions' => [
+        '#title' => t('Views Permissions'),
         '#description' => t('Ensure that views have defined permissions.'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
-      'linux_permissions'  => [
-        '#title'       => t('Linux Permissions'),
+      'linux_permissions' => [
+        '#title' => t('Linux Permissions'),
         '#description' => t('Ensure that linux permissions on files and private-files directories are correct.'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
-      'settings_php'       => [
-        '#title'       => t('Permissions in settings.php'),
+      'settings_php' => [
+        '#title' => t('Permissions in settings.php'),
         '#description' => t('Ensure permissions in the settings.php files are correct.'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
     ],
 
-        // Section 9 Database.
-    '09_database'             => [
-      '#title'                  => t('Database'),
-      '#description'            => t('<p>Database settings for the Drupal site.</p>'),
+    // Section 9 Database.
+    '09_database' => [
+      '#title' => t('Database'),
+      '#description' => t('<p>Database settings for the Drupal site.</p>'),
 
-      'database_backup'         => [
-        '#title'       => t('Database Backups'),
+      'database_backup' => [
+        '#title' => t('Database Backups'),
         '#description' => t('Ensure that a daily scheduled database backup has been created using backup and migrate and that it is saving at least 7 days worth of backups, but not unlimited backups.'),
-                        // 'handbook_page' => array(
-                        // '#text' => t( 'Google Analytics module' ),
-                        // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'daily_backup'            => [
-        '#title'       => t('Daily Backup'),
+      'daily_backup' => [
+        '#title' => t('Daily Backup'),
         '#description' => t('Manually test the daily backup to ensure that the backup is generated and saved successfully. Check that the daily backup is running successfully when cron runs.'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
-      'aes_module'              => [
-        '#title'       => t('AES Module'),
+      'aes_module' => [
+        '#title' => t('AES Module'),
         '#description' => t('For sites that contain sensitive data, ensure that the AES module is installed and backups are encrypted.'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
       'private_files_directory' => [
-        '#title'       => t('Private Files Directory'),
+        '#title' => t('Private Files Directory'),
         '#description' => t('Check that the Private files directory is actually outside of the document root (eg. outside the public_html folder).'),
         // 'handbook_page' => array(
         // '#text' => t( 'Google Analytics module' ),
-        // '#url'  => $google_anaytics_route,
+        // '#url' => $google_anaytics_route,
       ],
     ],
 
-        // Section 10 Theme.
-    '10_theme'                => [
-      '#title'            => t('Theme'),
-      '#description'      => t('<p>Theme settings for the Drupal site.</p>'),
+    // Section 10 Theme.
+    '10_theme' => [
+      '#title' => t('Theme'),
+      '#description' => t('<p>Theme settings for the Drupal site.</p>'),
 
       'responsive_design' => [
-        '#title'       => t('Responsive Design'),
+        '#title' => t('Responsive Design'),
         '#description' => t('For responsive designs, check that the theme is responding properly at all resolutions and orientations, and that there are no visual issues.'),
-                        // 'handbook_page' => array(
-                        // '#text' => t( 'Google Analytics module' ),
-                        // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'custom_js'         => [
-        '#title'       => t('Custom Javascript'),
+      'custom_js' => [
+        '#title' => t('Custom Javascript'),
         '#description' => t('If there are any custom JS files in the theme verify if they should be added to every page.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'theme_structure'   => [
-        '#title'       => t('Theme Structure'),
+      'theme_structure' => [
+        '#title' => t('Theme Structure'),
         '#description' => t('Make sure the theme is well structured and that there are no unused image/css/js files present.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
     ],
 
-        // Section 11 Accessibility.
-    '11_accessibility'        => [
-      '#title'                  => t('Accessibility'),
-      '#description'            => t('<p>Accessibility settings for the Drupal site.</p>'),
+    // Section 11 Accessibility.
+    '11_accessibility' => [
+      '#title' => t('Accessibility'),
+      '#description' => t('<p>Accessibility settings for the Drupal site.</p>'),
 
-      'alt_tags'                => [
-        '#title'       => t('Image Alt Tags'),
+      'alt_tags' => [
+        '#title' => t('Image Alt Tags'),
         '#description' => t('Ensure that all images have alt tags.'),
-                        // 'handbook_page' => array(
-                        // '#text' => t( 'Google Analytics module' ),
-                        // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'color_contrast'          => [
-        '#title'       => t('Color Contrast'),
+      'color_contrast' => [
+        '#title' => t('Color Contrast'),
         '#description' => t('Ensure that colors have the proper contrast to meet accessibility requirements.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'links'                   => [
-        '#title'       => t('Links'),
-        '#description' => t('Make sure links are specific to what will happen when clicked (ie: “Read More” and “Click Here” are too vague)'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+      'links' => [
+        '#title' => t('Links'),
+        '#description' => t('Make sure links are specific to what will happen when clicked (ie: "Read More" and "Click Here" are too vague)'),
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'headings'                => [
-        '#title'       => t('Headings'),
+      'headings' => [
+        '#title' => t('Headings'),
         '#description' => t('Ensure headings are properly assigned.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'accessibility_checker'   => [
-        '#title'       => t('Accessibility Checker'),
+      'accessibility_checker' => [
+        '#title' => t('Accessibility Checker'),
         '#description' => t('Run an accessibility checker, such as WAVE or Axe, to check for any outstanding accessibility issues.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
       'accessibility_checklist' => [
-        '#title'        => t('Accessibility Checklist'),
-        '#description'  => t('For a more comprehensive accessibility check, visit the A11y Project Checklist.'),
+        '#title' => t('Accessibility Checklist'),
+        '#description' => t('For a more comprehensive accessibility check, visit the A11y Project Checklist.'),
         'handbook_page' => [
           '#text' => t('The A11y Project Checklist'),
-          '#url'  => Url::fromUri('https://www.a11yproject.com/checklist/'),
+          '#url' => Url::fromUri('https://www.a11yproject.com/checklist/'),
         ],
       ],
     ],
 
-        // Section 12 Drupal Modules.
-    '12_drupal_modules'       => [
-      '#title'       => t('Drupal Modules'),
+    // Section 12 Drupal Modules.
+    '12_drupal_modules' => [
+      '#title' => t('Drupal Modules'),
       '#description' => t('<p>Drupal module settings for the Drupal site.</p>'),
 
       'cust_modules' => [
-        '#title'       => t('Custom Modules'),
+        '#title' => t('Custom Modules'),
         '#description' => t('Ensure that custom modules are in a "custom" folder.'),
-                        // 'handbook_page' => array(
-                        // '#text' => t( 'Google Analytics module' ),
-                        // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
       'coder_module' => [
-        '#title'       => t('Coder Module'),
+        '#title' => t('Coder Module'),
         '#description' => t('Run the Coder module and fix any issues it discovers in the custom modules.'),
-                  // 'handbook_page' => array(
-                  // '#text' => t( 'Google Analytics module' ),
-                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
       'devel_module' => [
-        '#title'       => t('Devel Module'),
+        '#title' => t('Devel Module'),
         '#description' => t('Ensure that the Devel module is disabled on the production site.'),
-                  // 'handbook_page' => array(
-                  // '#text' => t( 'Google Analytics module' ),
-                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
     ],
 
         // Section 13 Other.
-    '13_other'                => [
-      '#title'                 => t('Other'),
-      '#description'           => t('<p>Misc. settings for the Drupal site.</p>'),
+    '13_other' => [
+      '#title' => t('Other'),
+      '#description' => t('<p>Misc. settings for the Drupal site.</p>'),
 
-      'dns_ttl'                => [
-        '#title'       => t('DNS TTL'),
+      'dns_ttl' => [
+        '#title' => t('DNS TTL'),
         '#description' => t('Reduce DNS TTL to 300s (5 min) 24 hours prior to site launch.'),
-                        // 'handbook_page' => array(
-                        // '#text' => t( 'Google Analytics module' ),
-                        // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'site_email'             => [
-        '#title'       => t('Website Email Address'),
+      'site_email' => [
+        '#title' => t('Website Email Address'),
         '#description' => t('Ensure that the site email address is neither a kanopistudios.com nor kanopi.com email address.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'cron_job'               => [
-        '#title'       => t('Cron Job'),
+      'cron_job' => [
+        '#title' => t('Cron Job'),
         '#description' => t('Ensure that the real cron job is setup and running once per hour.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'cron_drupal_core'       => [
-        '#title'       => t('Cron Drupal Core'),
+      'cron_drupal_core' => [
+        '#title' => t('Cron Drupal Core'),
         '#description' => t('Ensure that cron in Drupal Core is disabled'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'status_report_errors'   => [
-        '#title'       => t('Status Report Errors'),
+      'status_report_errors' => [
+        '#title' => t('Status Report Errors'),
         '#description' => t('Resolve any errors (red) on the status report page.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
       'status_report_warnings' => [
-        '#title'       => t('Status Report Warnings'),
+        '#title' => t('Status Report Warnings'),
         '#description' => t('Resolve any warnings on the Status Report page.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
-      'logging_reporting'      => [
-        '#title'       => t('Logging and Error Reporting'),
+      'logging_reporting' => [
+        '#title' => t('Logging and Error Reporting'),
         '#description' => t('Check the Logging and Error Reporting setting and set them to not display any errors or warnings on the site. Errors should only be logged in watchdog on production sites.'),
-                                  // 'handbook_page' => array(
-                                  // '#text' => t( 'Google Analytics module' ),
-                                  // '#url'  => $google_anaytics_route,
+        // 'handbook_page' => array(
+        // '#text' => t( 'Google Analytics module' ),
+        // '#url' => $google_anaytics_route,
       ],
     ],
   ];
