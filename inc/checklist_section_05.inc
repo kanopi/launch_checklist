@@ -5,7 +5,7 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
-// use Drupal\Core\Url;
+use Drupal\Core\Url;
 
 /**
  * Generates are returns section 5 for launch_checklist.
@@ -22,8 +22,8 @@ function populate_section_05() {
       '#title' => t('Manager Permissions'),
       '#description' => t('Ensure managers have the ability to manage users.'),
       // 'handbook_page' => [
-      // '#text' => t('Front page of site.'),
-      // '#url' => $front_route,
+      // '#text' => t('Site User Permissions'),
+      // '#url' => Url::fromRoute('people.permissions'),
       // ],
     ],
     'user_sign_up_settings' => [

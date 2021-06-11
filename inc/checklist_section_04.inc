@@ -26,6 +26,18 @@ function populate_section_04() {
   if ($moduleHandler->moduleExists('xmlsitemap')) {
     $xml_sitemap = Url::fromRoute('xmlsitemap.admin_search');
   }
+  // Global Redirect.
+  $global_redirect = '';
+  $global_redirect = Url::fromUri('https://www.drupal.org/project/redirect');
+  if ($moduleHandler->moduleExists('redirect')) {
+    $global_redirect = Url::fromRoute('redirect.settings');
+  }
+  // Schema.org Metatag.
+  $schema_metatag = '';
+  $schema_metatag = Url::fromUri('https://www.drupal.org/project/schema_metatag');
+  if ($moduleHandler->moduleExists('schema_metatag')) {
+    $schema_metatag = Url::fromRoute('help.page.schema_metatag');
+  }
 
   return [
 
@@ -60,14 +72,14 @@ function populate_section_04() {
     'global_redirect' => [
       '#title' => t('Global Redirect Module'),
       '#description' => t('Ensure that the global redirect module is enabled.'),
-      // 'handbook_page' => [
-      // '#text' => t('Front page of site.'),
-      // '#url' => $front_route,
-      // ],
+      'handbook_page' => [
+        '#text' => t('Global Redirect settings.'),
+        '#url' => $global_redirect,
+      ],
     ],
     'apache_rewrite_rules' => [
       '#title' => t('Apache Rewrite Rules'),
-      '#description' => t('Ensure that one of the rewirte rules in the Apache directives is uncommented, so either traffic to www or vice versa.'),
+      '#description' => t('Ensure that one of the rewrite rules in the Apache directives is uncommented, so either traffic to www or vice versa.'),
       // 'handbook_page' => [
       // '#text' => t('Front page of site.'),
       // '#url' => $front_route,
@@ -84,10 +96,10 @@ function populate_section_04() {
     'schema_settings' => [
       '#title' => t('Schema.org Settings'),
       '#description' => t('Ensure that the schema.org settings are complete for all content types.'),
-      // 'handbook_page' => [
-      // '#text' => t('Front page of site.'),
-      // '#url' => $front_route,
-      // ],
+      'handbook_page' => [
+        '#text' => t('Schema Metatag help page.'),
+        '#url' => $schema_metatag,
+      ],
     ],
   ];
 }
