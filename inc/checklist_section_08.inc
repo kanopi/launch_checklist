@@ -35,23 +35,26 @@ function populate_section_08() {
     'page_caching' => [
       '#title' => t('Page Caching'),
       '#description' => t('Ensure that page caching is enabled.'),
-      // 'handbook_page' => array(
-      // '#text' => t( 'Google Analytics module' ),
-      // '#url' => $google_anaytics_route,
+      'handbook_page' => [
+        '#text' => t('Site Performance Settings'),
+        '#url' => Url::fromRoute('system.admin_content'),
+      ],
     ],
     'css_aggregation' => [
       '#title' => t('CSS Aggregation and Compression'),
       '#description' => t('Ensure that CSS aggregation and compression is enabled.'),
-      // 'handbook_page' => array(
-      // '#text' => t( 'Google Analytics module' ),
-      // '#url' => $google_anaytics_route,
+      'handbook_page' => [
+        '#text' => t('Site Performance Settings'),
+        '#url' => Url::fromRoute('system.admin_content'),
+      ],
     ],
     'js_aggregation' => [
       '#title' => t('JS aggregation'),
       '#description' => t('Ensure that JS aggregation is enabled.'),
-      // 'handbook_page' => array(
-      // '#text' => t( 'Google Analytics module' ),
-      // '#url' => $google_anaytics_route,
+      'handbook_page' => [
+        '#text' => t('Site Performance Settings'),
+        '#url' => Url::fromRoute('system.admin_content'),
+      ],
     ],
     'visibility' => [
       '#title' => t('Visibility'),

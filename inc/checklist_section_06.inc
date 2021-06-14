@@ -5,7 +5,7 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
-// use Drupal\Core\Url;
+use Drupal\Core\Url;
 
 /**
  * Generates are returns section 6 for launch_checklist.
@@ -13,13 +13,13 @@
 function populate_section_06() {
 
   // Check if module exists.
-  // $moduleHandler = \Drupal::service('module_handler');
-  // WYSIWYG Profiles. (Need to find the route still...)
-  // $wysiwyg_profiles = '';
-  // $wysiwyg_profiles = Url::fromUri('https://www.drupal.org/project/wysiwyg');
-  // if ($moduleHandler->moduleExists('wysiwyg')) {
-  //   $wysiwyg_profiles = Url::fromRoute('content.admin_settings_form');
-  // }
+  $moduleHandler = \Drupal::service('module_handler');
+  // Global Redirect.
+  $global_redirect = '';
+  $global_redirect = Url::fromUri('https://www.drupal.org/project/redirect');
+  if ($moduleHandler->moduleExists('redirect')) {
+    $global_redirect = Url::fromRoute('redirect.list');
+  }
 
   return [
 
@@ -30,10 +30,10 @@ function populate_section_06() {
     'content_redirects' => [
       '#title' => t('Content Redirects'),
       '#description' => t('Ensure that content redirects are in place.'),
-      // 'handbook_page' => [
-      // '#text' => t('Front page of site.'),
-      // '#url' => $front_route,
-      // ],
+      'handbook_page' => [
+        '#text' => t('Global Redirect URL Redirects.'),
+        '#url' => $global_redirect,
+      ],
     ],
     'manage_content' => [
       '#title' => t('Manager Role and Content'),

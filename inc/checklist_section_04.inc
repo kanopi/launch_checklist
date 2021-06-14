@@ -64,10 +64,10 @@ function populate_section_04() {
     'title_meta_tags' => [
       '#title' => t('Page Titles and Meta Tags'),
       '#description' => t('Ensure that page titles and meta tags are set up.'),
-      // 'handbook_page' => [
-      // '#text' => t('Front page of site.'),
-      // '#url' => $front_route,
-      // ],
+      'handbook_page' => [
+        '#text' => t('Site Content - Filter by Page'),
+        '#url' => Url::fromRoute('system.admin_content'),
+      ],
     ],
     'global_redirect' => [
       '#title' => t('Global Redirect Module'),
