@@ -5,7 +5,7 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
-// use Drupal\Core\Url;
+use Drupal\Core\Url;
 
 /**
  * Generates are returns section 8 for launch_checklist.

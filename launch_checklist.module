@@ -41,34 +41,6 @@ function launch_checklist_checklistapi_checklist_info() {
  * Implements callback_checklistapi_checklist_items() for launch_checklist.
  */
 function launch_checklist_checklistapi_checklist_items() {
-  // Home page.
-  $front_route = Url::fromRoute('<front>');
-  // Check if module exists.
-  $moduleHandler = \Drupal::service('module_handler');
-  // Webform.
-  $webform_route = '';
-  $webform_route = Url::fromUri('https://www.drupal.org/project/webform');
-  if ($moduleHandler->moduleExists('webform')) {
-    $webform_route = Url::fromRoute('entity.webform.collection');
-  }
-  // Google Analytics.
-  $google_analytics_route = '';
-  $google_analytics_route = Url::fromUri('https://www.drupal.org/project/google_analytics');
-  if ($moduleHandler->moduleExists('google_analytics')) {
-    $google_analytics_route = Url::fromRoute('google_analytics.admin_settings_form');
-  }
-  // XML Sitemap.
-  $xml_sitemap = '';
-  $xml_sitemap = Url::fromUri('https://www.drupal.org/project/xmlsitemap');
-  if ($moduleHandler->moduleExists('xmlsitemap')) {
-    $xml_sitemap = Url::fromRoute('xmlsitemap.admin_search');
-  }
-  // Global Redirect module.
-  $global_redirect = '';
-  $global_redirect = Url::fromUri('https://www.drupal.org/project/globalredirect');
-  if ($moduleHandler->moduleExists('globalredirect')) {
-    $global_redirect = Url::fromRoute('xmlsitemap.admin_search');
-  }
 
   // Populate the array with content sections and return the whole thing.
   $sections_array = [];

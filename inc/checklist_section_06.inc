@@ -12,6 +12,15 @@
  */
 function populate_section_06() {
 
+  // Check if module exists.
+  // $moduleHandler = \Drupal::service('module_handler');
+  // WYSIWYG Profiles. (Need to find the route still...)
+  // $wysiwyg_profiles = '';
+  // $wysiwyg_profiles = Url::fromUri('https://www.drupal.org/project/wysiwyg');
+  // if ($moduleHandler->moduleExists('wysiwyg')) {
+  //   $wysiwyg_profiles = Url::fromRoute('content.admin_settings_form');
+  // }
+
   return [
 
   // Section 6 Content.
