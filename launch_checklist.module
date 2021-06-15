@@ -5,9 +5,20 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
-use Drupal\checklistapi\ChecklistapiChecklist;
-use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_01.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_02.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_03.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_04.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_05.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_06.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_07.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_08.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_09.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_10.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_11.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_12.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_13.inc';
 
 /**
  * Implements hook_checklistapi_checklist_info().
@@ -30,92 +41,24 @@ function launch_checklist_checklistapi_checklist_info() {
  * Implements callback_checklistapi_checklist_items() for launch_checklist.
  */
 function launch_checklist_checklistapi_checklist_items() {
-  // Home page.
-  $front_route = Url::fromRoute('<front>');
-  // Check if module exists.
-  $moduleHandler = \Drupal::service('module_handler');
-  // Webform.
-  $webform_route = '';
-  $webform_route = Url::fromUri('https://www.drupal.org/project/webform');
-  if ($moduleHandler->moduleExists('webform')) {
-    $webform_route = Url::fromRoute('entity.webform.collection');
-  }
 
-  return [
-    // Section 1 General.
-    '01_general' => [
-      '#title' => t('General'),
-      '#description' => t('<p>General settings for the Drupal site.</p>'),
-      'site_information_email' => [
-        '#title' => t('Verify the site information uses client email'),
-        '#description' => t('The From address in automated emails sent during registration and new password requests, and other notifications.'),
-        'handbook_page' => [
-          '#text' => t('Site Information Email'),
-          '#url' => Url::fromRoute('system.site_information_settings'),
-        ],
-      ],
-      'site_information_name' => [
-        '#title' => t('Verify the site title tag is correct'),
-        '#description' => t('Make sure the Site name field is correct.'),
-        'handbook_page' => [
-          '#text' => t('Site Information Name'),
-          '#url' => Url::fromRoute('system.site_information_settings'),
-        ],
-      ],
-      'favicon' => [
-        '#title' => t('Favicon'),
-        '#description' => t('Verify Favicon is correct.'),
-        'handbook_page' => [
-          '#text' => t('Front page of site.'),
-          '#url' => $front_route,
-        ],
-      ],
-    ],
-    // Section 2 Browser Checks.
-    '02_browser_checks' => [
-      '#title' => t('Browser Checks'),
-      '#description' => t('<p>Verify the look and funcitonality across devices.</p>'),
-      'desktop' => [
-        '#title' => t('Verify the site looks and behaves as exprected on Desktop'),
-        '#description' => t('Test on the latest two versions of browsers, including Google Chrome, Mozilla Firefox, Safari, Internet Explorer, Edge and Opera'),
-        'handbook_page' => [
-          '#text' => t('Use a Cross Browser Testing Tool like Browserstack'),
-          '#url' => Url::fromUri('https://www.browserstack.com/'),
-        ],
-      ],
-      'mobile' => [
-        '#title' => t('Verify the site looks and behaves as exprected on mobile'),
-        '#description' => t('Testing should also be completed on mobile devices including: Apple iPad, Apple iPhone, Samsung Galaxy SIII, Nexus, Google Nexus 7, Amazon Kindle Fire, Droid Razr 4G, Blackberry, Amazon Silk'),
-        'handbook_page' => [
-          '#text' => t('Use a Cross Browser Testing Tool like Browserstack'),
-          '#url' => Url::fromUri('https://www.browserstack.com/'),
-        ],
-      ],
-    ],
-    // Section 3 Forms.
-    '03_forms' => [
-      '#title' => t('Forms'),
-      '#description' => t('<p>Verify forms work as expected.</p>'),
-      'email' => [
-        '#title' => t('Form emails'),
-        '#description' => t('Check all webforms for recipient email and test.'),
-        'handbook_page' => [
-          '#text' => t('Webform'),
-          '#url' => $webform_route,
-        ],
-      ],
-      'confirmation' => [
-        '#title' => t('Form confirmation'),
-        '#description' => t('Check all webforms for thank you message'),
-        'handbook_page' => [
-          '#text' => t('Webform'),
-          '#url' => $webform_route,
-        ],
-      ],
-      'spam' => [
-        '#title' => t('Spam protection'),
-        '#description' => t('Ensure Spam prevention measures are in place.'),
-      ],
-    ],
-  ];
+  // Populate the array with content sections and return the whole thing.
+  $sections_array = [];
+  $sections_array ["01_general"]        = populate_section_01();
+  $sections_array ["02_browser"]        = populate_section_02();
+  $sections_array ["03_forms"]          = populate_section_03();
+  $sections_array ["04_seo"]            = populate_section_04();
+  $sections_array ["05_permissions"]    = populate_section_05();
+  $sections_array ["06_content"]        = populate_section_06();
+  $sections_array ["07_gdpr_privacy"]   = populate_section_07();
+  $sections_array ["08_security"]       = populate_section_08();
+  $sections_array ["09_database"]       = populate_section_09();
+  $sections_array ["10_theme"]          = populate_section_10();
+  $sections_array ["11_accessibility"]  = populate_section_11();
+  $sections_array ["12_drupal_modules"] = populate_section_12();
+  $sections_array ["13_other"]          = populate_section_13();
+  return $sections_array;
+
 }
+
+
