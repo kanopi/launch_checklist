@@ -8,7 +8,7 @@
 include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_01.inc';
 include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_02.inc';
 include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_03.inc';
-include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_04.inc';
+include drupal_get_path('module', 'launch_checklist') . '/inc/section_04_seo.inc';
 include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_05.inc';
 include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_06.inc';
 include drupal_get_path('module', 'launch_checklist') . '/inc/checklist_section_07.inc';
@@ -46,7 +46,7 @@ function launch_checklist_checklistapi_checklist_items() {
   $sections_array["01_general"]        = populate_section_01();
   $sections_array["02_browser"]        = populate_section_02();
   $sections_array["03_forms"]          = populate_section_03();
-  $sections_array["04_seo"]            = populate_section_04();
+  $sections_array["section_04_seo"]    = section_04_seo();
   $sections_array["05_permissions"]    = populate_section_05();
   $sections_array["06_content"]        = populate_section_06();
   $sections_array["07_gdpr_privacy"]   = populate_section_07();

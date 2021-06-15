@@ -8,9 +8,9 @@
 use Drupal\Core\Url;
 
 /**
- * Generates are returns section 4 for launch_checklist.
+ * Generates the section 04 SEO list..
  */
-function populate_section_04() {
+function section_04_seo() {
 
   // Check if module exists.
   $moduleHandler = \Drupal::service('module_handler');
@@ -27,16 +27,22 @@ function populate_section_04() {
     $xml_sitemap = Url::fromRoute('xmlsitemap.admin_search');
   }
   // Global Redirect.
-  $global_redirect = '';
-  $global_redirect = Url::fromUri('https://www.drupal.org/project/redirect');
+  $redirect = '';
+  $redirect = Url::fromUri('https://www.drupal.org/project/redirect');
   if ($moduleHandler->moduleExists('redirect')) {
-    $global_redirect = Url::fromRoute('redirect.settings');
+    $redirect = Url::fromRoute('redirect.list');
+  }
+  // Metatag.
+  $metatag = '';
+  $metatag = Url::fromUri('https://www.drupal.org/project/metatag');
+  if ($moduleHandler->moduleExists('metatag')) {
+    $metatag = Url::fromRoute('entity.metatag_defaults.collection');
   }
   // Schema.org Metatag.
   $schema_metatag = '';
   $schema_metatag = Url::fromUri('https://www.drupal.org/project/schema_metatag');
   if ($moduleHandler->moduleExists('schema_metatag')) {
-    $schema_metatag = Url::fromRoute('help.page.schema_metatag');
+    $schema_metatag = Url::fromRoute('entity.metatag_defaults.collection');
   }
 
   return [
@@ -51,6 +57,7 @@ function populate_section_04() {
       'handbook_page' => [
         '#text' => t('Google Analytics module'),
         '#url' => $google_analytics_route,
+        // @todo can we add other modules here?
       ],
     ],
     'xml_sitemap' => [
@@ -59,47 +66,40 @@ function populate_section_04() {
       'handbook_page' => [
         '#text' => t('XML Sitemap'),
         '#url' => $xml_sitemap,
+        // @todo can we add other modules here?
       ],
     ],
     'title_meta_tags' => [
       '#title' => t('Page Titles and Meta Tags'),
       '#description' => t('Ensure that page titles and meta tags are set up.'),
       'handbook_page' => [
-        '#text' => t('Site Content - Filter by Page'),
-        '#url' => Url::fromRoute('system.admin_content'),
+        '#text' => t('Metatag'),
+        '#url' => $metatag,
       ],
-    ],
-    'global_redirect' => [
-      '#title' => t('Global Redirect Module'),
-      '#description' => t('Ensure that the global redirect module is enabled.'),
-      'handbook_page' => [
-        '#text' => t('Global Redirect settings.'),
-        '#url' => $global_redirect,
-      ],
-    ],
-    'apache_rewrite_rules' => [
-      '#title' => t('Apache Rewrite Rules'),
-      '#description' => t('Ensure that one of the rewrite rules in the Apache directives is uncommented, so either traffic to www or vice versa.'),
-      // 'handbook_page' => [
-      // '#text' => t('Front page of site.'),
-      // '#url' => $front_route,
-      // ],
-    ],
-    'htaccess_rewrite_rules' => [
-      '#title' => t('.htaccess Rewrite Rules'),
-      '#description' => t('Ensure that there is a rewrite rule in the .htaccess file which redirects any temporary / alternate urls (eg. wwww.<site-name>.com).'),
-      // 'handbook_page' => [
-      // '#text' => t('Front page of site.'),
-      // '#url' => $front_route,
-      // ],
     ],
     'schema_settings' => [
       '#title' => t('Schema.org Settings'),
       '#description' => t('Ensure that the schema.org settings are complete for all content types.'),
       'handbook_page' => [
-        '#text' => t('Schema Metatag help page.'),
+        '#text' => t('Schema Metatag'),
         '#url' => $schema_metatag,
       ],
+    ],
+    'redirect' => [
+      '#title' => t('Redirect Module'),
+      '#description' => t('Ensure that the redirect module is enabled.'),
+      'handbook_page' => [
+        '#text' => t('Global Redirect settings.'),
+        '#url' => $redirect,
+      ],
+    ],
+    'rewrite_rules' => [
+      '#title' => t('Rewrite Rules'),
+      '#description' => t('Verify that rewrite rules (Apache, nginx, or host settings) force all traffic to https and www or non-www.'),
+    ],
+    'rewrite_rules_alt' => [
+      '#title' => t('Rewrite Rules for Alternate URLs'),
+      '#description' => t('Verify that rewrite rules (Apache, nginx, or host settings) force any temporary / alternate urls (eg. wwww.<site-name>.com) to the primary url.'),
     ],
   ];
 }
