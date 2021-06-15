@@ -21,6 +21,7 @@ function populate_section_08() {
     'load_testing' => [
       '#title' => t('Load Testing'),
       '#description' => t('Run load tests to ensure the site can easily withstand traffic spikes.'),
+      // @todo what is the route?
       // 'handbook_page' => array(
       // '#text' => t( 'Google Analytics module' ),
       // '#url' => $google_anaytics_route,
