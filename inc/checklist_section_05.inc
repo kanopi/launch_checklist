@@ -14,12 +14,6 @@ function populate_section_05() {
 
   // Check if module exists.
   $moduleHandler = \Drupal::service('module_handler');
-  // All User Permissions
-  // $all_user_permissions = '';
-  // $all_user_permissions = Url::fromUri('https://www.drupal.org/project/google_analytics');
-  // if ($moduleHandler->moduleExists('google_analytics')) {
-  //   $all_user_permissions = Url::fromRoute('google_analytics.admin_settings_form');
-  // }
 
   return [
 
