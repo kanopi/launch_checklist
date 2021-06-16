@@ -10,7 +10,7 @@ use Drupal\Core\Url;
 /**
  * Generates are returns section 8 for launch_checklist.
  */
-function populate_section_08() {
+function section_08_security() {
 
   return [
 

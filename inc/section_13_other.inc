@@ -5,12 +5,10 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
-// Use Drupal\Core\Url;.
-
 /**
  * Generates are returns section 13 for launch_checklist.
  */
-function populate_section_13() {
+function section_13_other() {
 
   return [
 

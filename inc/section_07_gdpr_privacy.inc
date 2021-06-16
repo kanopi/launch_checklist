@@ -5,12 +5,10 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
-// Use Drupal\Core\Url;.
-
 /**
  * Generates are returns section 7 for launch_checklist.
  */
-function populate_section_07() {
+function section_07_gdpr_privacy() {
 
   return [
 

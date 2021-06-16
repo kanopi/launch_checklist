@@ -10,7 +10,7 @@ use Drupal\Core\Url;
 /**
  * Generates are returns section 11 for launch_checklist.
  */
-function populate_section_11() {
+function section_11_accessibility() {
 
   return [
 

@@ -10,7 +10,7 @@ use Drupal\Core\Url;
 /**
  * Generates are returns section 2 for launch_checklist.
  */
-function populate_section_02() {
+function section_02_browser_checks() {
 
   return [
   // Section 2 Browser Checks.

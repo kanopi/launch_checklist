@@ -10,7 +10,7 @@ use Drupal\Core\Url;
 /**
  * Generates are returns section 6 for launch_checklist.
  */
-function populate_section_06() {
+function section_06_content() {
 
   // Check if module exists.
   $moduleHandler = \Drupal::service('module_handler');

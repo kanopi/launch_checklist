@@ -10,7 +10,7 @@ use Drupal\Core\Url;
 /**
  * Generates are returns section 1 for launch_checklist.
  */
-function populate_section_01() {
+function section_01_general() {
 
   // Home page route.
   $front_route = Url::fromRoute('<front>');
