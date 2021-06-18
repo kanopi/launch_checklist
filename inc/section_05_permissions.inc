@@ -11,13 +11,11 @@ use Drupal\Core\Url;
  * Generates are returns section 5 for launch_checklist.
  */
 function section_05_permissions() {
-
   return [
 
   // Section 5 User Permissions.
     '#title' => t('User Permissions'),
     '#description' => t('<p>User Permission settings for the Drupal site.</p>'),
-
     'manager_permissions' => [
       '#title' => t('Manager Permissions'),
       '#description' => t('Ensure managers have the ability to manage users.'),

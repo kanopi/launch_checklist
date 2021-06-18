@@ -13,10 +13,9 @@ use Drupal\Core\Url;
 function section_02_browser_checks() {
 
   return [
-  // Section 2 Browser Checks.
+    // Section 2 Browser Checks.
     '#title' => t('Browser Checks'),
     '#description' => t('<p>Verify the look and funcitonality across devices.</p>'),
-
     'desktop' => [
       '#title' => t('Verify the site looks and behaves as exprected on Desktop'),
       '#description' => t('Test on the latest two versions of browsers, including Google Chrome, Mozilla Firefox, Safari, Internet Explorer, Edge and Opera'),

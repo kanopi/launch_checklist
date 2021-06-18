@@ -5,59 +5,25 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
-use Drupal\Core\Url;
-
 /**
  * Generates the section 04 SEO list..
  */
 function section_04_seo() {
 
-  // Check if module exists.
-  $moduleHandler = \Drupal::service('module_handler');
-  // Google Analytics.
-  $google_analytics_route = '';
-  $google_analytics_route = Url::fromUri('https://www.drupal.org/project/google_analytics');
-  if ($moduleHandler->moduleExists('google_analytics')) {
-    $google_analytics_route = Url::fromRoute('google_analytics.admin_settings_form');
-  }
-  // XML Sitemap.
-  $xml_sitemap = '';
-  $xml_sitemap = Url::fromUri('https://www.drupal.org/project/xmlsitemap');
-  if ($moduleHandler->moduleExists('xmlsitemap')) {
-    $xml_sitemap = Url::fromRoute('xmlsitemap.admin_search');
-  }
-  // Global Redirect.
-  $redirect = '';
-  $redirect = Url::fromUri('https://www.drupal.org/project/redirect');
-  if ($moduleHandler->moduleExists('redirect')) {
-    $redirect = Url::fromRoute('redirect.list');
-  }
-  // Metatag.
-  $metatag = '';
-  $metatag = Url::fromUri('https://www.drupal.org/project/metatag');
-  if ($moduleHandler->moduleExists('metatag')) {
-    $metatag = Url::fromRoute('entity.metatag_defaults.collection');
-  }
-  // Schema.org Metatag.
-  $schema_metatag = '';
-  $schema_metatag = Url::fromUri('https://www.drupal.org/project/schema_metatag');
-  if ($moduleHandler->moduleExists('schema_metatag')) {
-    $schema_metatag = Url::fromRoute('entity.metatag_defaults.collection');
-  }
-
   return [
-
-  // Section 4 SEO.
+    // Section 4 SEO.
     '#title' => t('SEO'),
     '#description' => t('<p>SEO settings for the Drupal site.</p>'),
-
     'analytics' => [
       '#title' => t('Analytics'),
       '#description' => t('Verify Google Analytics or similar is installed and correct access has been given'),
       'handbook_page' => [
         '#text' => t('Google Analytics module'),
-        '#url' => $google_analytics_route,
-        // @todo can we add other modules here?
+        '#url' => $google_analytics,
+      ],
+      'handbook_page_2' => [
+        '#text' => t('Google Tag Manager'),
+        '#url' => $google_tag,
       ],
     ],
     'xml_sitemap' => [
@@ -66,7 +32,10 @@ function section_04_seo() {
       'handbook_page' => [
         '#text' => t('XML Sitemap'),
         '#url' => $xml_sitemap,
-        // @todo can we add other modules here?
+      ],
+      'handbook_page_2' => [
+        '#text' => t('Simple Sitemap'),
+        '#url' => $simple_sitemap,
       ],
     ],
     'title_meta_tags' => [
@@ -89,7 +58,7 @@ function section_04_seo() {
       '#title' => t('Redirect Module'),
       '#description' => t('Ensure that the redirect module is enabled.'),
       'handbook_page' => [
-        '#text' => t('Global Redirect settings.'),
+        '#text' => t('Redirect settings.'),
         '#url' => $redirect,
       ],
     ],

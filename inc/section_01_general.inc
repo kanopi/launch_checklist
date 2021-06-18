@@ -12,14 +12,10 @@ use Drupal\Core\Url;
  */
 function section_01_general() {
 
-  // Home page route.
-  $front_route = Url::fromRoute('<front>');
-
   return [
-  // Section 1 General.
+    // Section 1 General.
     '#title' => t('General'),
     '#description' => t('<p>General settings for the Drupal site.</p>'),
-
     'site_information_email' => [
       '#title' => t('Verify the site information uses client email'),
       '#description' => t('The From address in automated emails sent during registration and new password requests, and other notifications.'),

@@ -5,28 +5,15 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
-use Drupal\Core\Url;
-
 /**
  * Generates are returns section 3 for launch_checklist.
  */
 function section_03_forms() {
 
-  // Check if module exists.
-  $moduleHandler = \Drupal::service('module_handler');
-  // Webform.
-  $webform_route = '';
-  $webform_route = Url::fromUri('https://www.drupal.org/project/webform');
-  if ($moduleHandler->moduleExists('webform')) {
-    $webform_route = Url::fromRoute('entity.webform.collection');
-  }
-
   return [
-
-  // Section 3 Forms.
+    // Section 3 Forms.
     '#title' => t('Forms'),
     '#description' => t('<p>Verify forms work as expected.</p>'),
-
     'email' => [
       '#title' => t('Form emails'),
       '#description' => t('Check all webforms for recipient email and test.'),

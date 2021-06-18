@@ -15,7 +15,6 @@ function section_12_drupal_modules() {
   // Section 12 Drupal Modules.
     '#title' => t('Drupal Modules'),
     '#description' => t('<p>Drupal module settings for the Drupal site.</p>'),
-
     'cust_modules' => [
       '#title' => t('Custom Modules'),
       '#description' => t('Ensure that custom modules are in a "custom" folder.'),

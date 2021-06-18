@@ -13,11 +13,9 @@ use Drupal\Core\Url;
 function section_11_accessibility() {
 
   return [
-
-  // Section 11 Accessibility.
+    // Section 11 Accessibility.
     '#title' => t('Accessibility'),
     '#description' => t('<p>Accessibility settings for the Drupal site.</p>'),
-
     'alt_tags' => [
       '#title' => t('Image Alt Tags'),
       '#description' => t('Ensure that all images have alt tags.'),

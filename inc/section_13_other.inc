@@ -11,11 +11,9 @@
 function section_13_other() {
 
   return [
-
-  // Section 13 Other.
+    // Section 13 Other.
     '#title' => t('Other'),
     '#description' => t('<p>Misc. settings for the Drupal site.</p>'),
-
     'dns_ttl' => [
       '#title' => t('DNS TTL'),
       '#description' => t('Reduce DNS TTL to 300s (5 min) 24 hours prior to site launch.'),
