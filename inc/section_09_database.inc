@@ -25,9 +25,10 @@ function section_09_database() {
     'aes_module' => [
       '#title' => t('RealAES Module'),
       '#description' => t('For sites that contain sensitive data, ensure that the Real AES module is installed and backups are encrypted.'),
-      'handbook_page' => array(
-      '#text' => t( 'Real AES module' ),
-      '#url' => $real_aes,
+      'handbook_page' => [
+        '#text' => t( 'Real AES module' ),
+        '#url' => $real_aes,
+      ],
     ],
     'private_files_directory' => [
       '#title' => t('Private Files Directory'),

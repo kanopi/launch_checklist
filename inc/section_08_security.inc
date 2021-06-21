@@ -119,9 +119,10 @@ function section_08_security() {
     'security_review' => [
       '#title' => t('Security Review Module'),
       '#description' => t('Evaluate the site using the security review module.'),
-      'handbook_page' => array(
-      '#text' => t( 'Security Review' ),
-      '#url' => $security_review,
+      'handbook_page' => [
+        '#text' => t( 'Security Review' ),
+        '#url' => $security_review,
+      ],
     ],
     'views_permissions' => [
       '#title' => t('Views Permissions'),
