@@ -5,12 +5,16 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
+include drupal_get_path('module', 'launch_checklist') . '/inc/routes.inc';
 use Drupal\Core\Url;
 
 /**
  * Generates are returns section 1 for launch_checklist.
  */
 function section_01_general() {
+
+  $checklist_routes = [];
+  $checklist_routes = routes();
 
   return [
     // Section 1 General.
@@ -37,7 +41,7 @@ function section_01_general() {
       '#description' => t('Verify Favicon is correct.'),
       'handbook_page' => [
         '#text' => t('Front page of site.'),
-        '#url' => $front_route,
+        '#url' => $checklist_routes["front_route"],
       ],
     ],
   ];

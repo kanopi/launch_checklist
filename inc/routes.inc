@@ -11,8 +11,11 @@ use Drupal\Core\Url;
  * Module routes and URL fallbacks.
  */
 function routes() {
+  //Array that holds all of the generated routes
+  $checklist_routes = [];
+
   // Home page route.
-  $front_route = Url::fromRoute('<front>');
+  $checklist_routes["front_route"] = Url::fromRoute('<front>');
 
   // Check if module exists.
   $moduleHandler = \Drupal::service('module_handler');
@@ -95,4 +98,7 @@ function routes() {
   if ($moduleHandler->moduleExists('xmlsitemap')) {
     $xml_sitemap = Url::fromRoute('xmlsitemap.admin_search');
   }
+
+  return $checklist_routes;
+
 }
