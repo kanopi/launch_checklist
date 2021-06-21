@@ -16,40 +16,49 @@ function section_11_accessibility() {
     // Section 11 Accessibility.
     '#title' => t('Accessibility'),
     '#description' => t('<p>Accessibility settings for the Drupal site.</p>'),
-    'alt_tags' => [
-      '#title' => t('Image Alt Tags'),
-      '#description' => t('Ensure that all images have alt tags.'),
-      // 'handbook_page' => array(
-      // '#text' => t( 'Google Analytics module' ),
-      // '#url' => $google_anaytics_route,
+    'lighthouse' => [
+      '#title' => t('Lighthouse Audit'),
+      '#description' => t('Running a Google Lighthouse test on your homepage and primary templates will help complete the other sections of this list.'),
+      'handbook_page' => [
+        '#text' => t('Google Lighthouse Docs'),
+        '#url' => Url::fromUri('https://developers.google.com/web/tools/lighthouse'),
+      ],
     ],
-    'color_contrast' => [
-      '#title' => t('Color Contrast'),
-      '#description' => t('Ensure that colors have the proper contrast to meet accessibility requirements.'),
-      // 'handbook_page' => array(
-      // '#text' => t( 'Google Analytics module' ),
-      // '#url' => $google_anaytics_route,
-    ],
-    'links' => [
-      '#title' => t('Links'),
-      '#description' => t('Make sure links are specific to what will happen when clicked (ie: "Read More" and "Click Here" are too vague)'),
-      // 'handbook_page' => array(
-      // '#text' => t( 'Google Analytics module' ),
-      // '#url' => $google_anaytics_route,
-    ],
-    'headings' => [
-      '#title' => t('Headings'),
-      '#description' => t('Ensure headings are properly assigned.'),
-      // 'handbook_page' => array(
-      // '#text' => t( 'Google Analytics module' ),
-      // '#url' => $google_anaytics_route,
+    'screaming_frog' => [
+      '#title' => t('Screaming Frog Audit'),
+      '#description' => t('Running a Screaming Frog Audit on your site will help complete the other sections of this list.'),
+      'handbook_page' => [
+        '#text' => t('Screaming Frog SEO Spider'),
+        '#url' => Url::fromUri('https://www.screamingfrog.co.uk/seo-spider/'),
+      ],
     ],
     'accessibility_checker' => [
       '#title' => t('Accessibility Checker'),
       '#description' => t('Run an accessibility checker, such as WAVE or Axe, to check for any outstanding accessibility issues.'),
-      // 'handbook_page' => array(
-      // '#text' => t( 'Google Analytics module' ),
-      // '#url' => $google_anaytics_route,
+      'handbook_page' => [
+        '#text' => t('WAVE Web Accessibility Evaluation Tool'),
+        '#url' => Url::fromUri('https://wave.webaim.org/'),
+      ],
+      'handbook_page' => [
+        '#text' => t('Axe'),
+        '#url' => Url::fromUri('https://www.deque.com/axe/'),
+      ],
+    ],
+    'alt_tags' => [
+      '#title' => t('Image Alt Tags'),
+      '#description' => t('Ensure that all images have alt tags.'),
+    ],
+    'color_contrast' => [
+      '#title' => t('Color Contrast'),
+      '#description' => t('Ensure that colors have the proper contrast to meet accessibility requirements.'),
+    ],
+    'links' => [
+      '#title' => t('Links'),
+      '#description' => t('Make sure links are specific to what will happen when clicked (ie: "Read More" and "Click Here" are too vague)'),
+    ],
+    'headings' => [
+      '#title' => t('Headings'),
+      '#description' => t('Ensure headings are properly assigned.'),
     ],
     'accessibility_checklist' => [
       '#title' => t('Accessibility Checklist'),
