@@ -6,9 +6,9 @@
  */
 
 /**
- * Generates the section 04 SEO list..
+ * Generates and returns section 4 for launch_checklist.
  */
-function section_04_seo() {
+function section_04_seo($checklist_routes) {
 
   return [
     // Section 4 SEO.
@@ -19,11 +19,11 @@ function section_04_seo() {
       '#description' => t('Verify Google Analytics or similar is installed and correct access has been given'),
       'handbook_page' => [
         '#text' => t('Google Analytics module'),
-        '#url' => $google_analytics,
+        '#url' => $checklist_routes["google_analytics"],
       ],
       'handbook_page_2' => [
         '#text' => t('Google Tag Manager'),
-        '#url' => $google_tag,
+        '#url' => $checklist_routes["google_tag"],
       ],
     ],
     'xml_sitemap' => [
@@ -31,11 +31,11 @@ function section_04_seo() {
       '#description' => t('Check that the XML sitemap module is enabled and a sitemap has been created.'),
       'handbook_page' => [
         '#text' => t('XML Sitemap'),
-        '#url' => $xml_sitemap,
+        '#url' => $checklist_routes["xml_sitemap"],
       ],
       'handbook_page_2' => [
         '#text' => t('Simple Sitemap'),
-        '#url' => $simple_sitemap,
+        '#url' => $checklist_routes["simple_sitemap"],
       ],
     ],
     'title_meta_tags' => [
@@ -43,7 +43,7 @@ function section_04_seo() {
       '#description' => t('Ensure that page titles and meta tags are set up.'),
       'handbook_page' => [
         '#text' => t('Metatag'),
-        '#url' => $metatag,
+        '#url' => $checklist_routes["metatag"],
       ],
     ],
     'schema_settings' => [
@@ -51,7 +51,7 @@ function section_04_seo() {
       '#description' => t('Ensure that the schema.org settings are complete for all content types.'),
       'handbook_page' => [
         '#text' => t('Schema Metatag'),
-        '#url' => $schema_metatag,
+        '#url' => $checklist_routes["schema_metatag"],
       ],
     ],
     'redirect' => [
@@ -59,7 +59,7 @@ function section_04_seo() {
       '#description' => t('Ensure that the redirect module is enabled.'),
       'handbook_page' => [
         '#text' => t('Redirect settings.'),
-        '#url' => $redirect,
+        '#url' => $checklist_routes["redirect"],
       ],
     ],
     'rewrite_rules' => [

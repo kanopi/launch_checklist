@@ -5,16 +5,12 @@
  * Uses best practices to check for pre-launch best practices.
  */
 
-include drupal_get_path('module', 'launch_checklist') . '/inc/routes.inc';
 use Drupal\Core\Url;
 
 /**
- * Generates are returns section 1 for launch_checklist.
+ * Generates and returns section 1 for launch_checklist.
  */
-function section_01_general() {
-
-  $checklist_routes = [];
-  $checklist_routes = routes();
+function section_01_general($checklist_routes) {
 
   return [
     // Section 1 General.

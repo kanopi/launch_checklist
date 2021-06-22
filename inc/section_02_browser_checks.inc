@@ -8,9 +8,9 @@
 use Drupal\Core\Url;
 
 /**
- * Generates are returns section 2 for launch_checklist.
+ * Generates and returns section 2 for launch_checklist.
  */
-function section_02_browser_checks() {
+function section_02_browser_checks($checklist_routes) {
 
   return [
     // Section 2 Browser Checks.

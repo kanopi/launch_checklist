@@ -8,9 +8,9 @@
 use Drupal\Core\Url;
 
 /**
- * Generates are returns section 11 for launch_checklist.
+ * Generates and returns section 11 for launch_checklist.
  */
-function section_11_accessibility() {
+function section_11_accessibility($checklist_routes) {
 
   return [
     // Section 11 Accessibility.
