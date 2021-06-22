@@ -6,9 +6,9 @@
  */
 
 /**
- * Generates are returns section 3 for launch_checklist.
+ * Generates and returns section 3 for launch_checklist.
  */
-function section_03_forms() {
+function section_03_forms($checklist_routes) {
 
   return [
     // Section 3 Forms.
@@ -19,7 +19,7 @@ function section_03_forms() {
       '#description' => t('Check all webforms for recipient email and test.'),
       'handbook_page' => [
         '#text' => t('Webform'),
-        '#url' => $webform_route,
+        '#url' => $checklist_routes["webform_route"],
       ],
     ],
     'confirmation' => [
@@ -27,7 +27,7 @@ function section_03_forms() {
       '#description' => t('Check all webforms for thank you message'),
       'handbook_page' => [
         '#text' => t('Webform'),
-        '#url' => $webform_route,
+        '#url' => $checklist_routes["webform_route"],
       ],
     ],
     'spam' => [

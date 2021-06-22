@@ -8,9 +8,9 @@
 use Drupal\Core\Url;
 
 /**
- * Generates are returns section 1 for launch_checklist.
+ * Generates and returns section 1 for launch_checklist.
  */
-function section_01_general() {
+function section_01_general($checklist_routes) {
 
   return [
     // Section 1 General.
@@ -37,7 +37,7 @@ function section_01_general() {
       '#description' => t('Verify Favicon is correct.'),
       'handbook_page' => [
         '#text' => t('Front page of site.'),
-        '#url' => $front_route,
+        '#url' => $checklist_routes["front_route"],
       ],
     ],
   ];

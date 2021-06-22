@@ -6,9 +6,9 @@
  */
 
 /**
- * Generates are returns section 7 for launch_checklist.
+ * Generates and returns section 7 for launch_checklist.
  */
-function section_07_gdpr_privacy() {
+function section_07_gdpr_privacy($checklist_routes) {
 
   return [
     // Section 7 GDPR and Privacy.
@@ -19,7 +19,7 @@ function section_07_gdpr_privacy() {
       '#description' => t('Include the approved language in the notification window.'),
       'handbook_page' => [
         '#text' => t('EU Cookie Compliance'),
-        '#url' => $eu_cookie_compliance,
+        '#url' => $checklist_routes["eu_cookie_compliance"],
       ],
     ],
     'privacy_policy' => [
@@ -27,7 +27,7 @@ function section_07_gdpr_privacy() {
       '#description' => t('Make sure a Privacy Policy exists and that there is a link to it.'),
       'handbook_page' => [
         '#text' => t('Front page of site.'),
-        '#url' => $front_route,
+        '#url' => $checklist_routes["front_route"],
       ],
     ],
     'privacy_policy_cookies' => [
@@ -35,7 +35,7 @@ function section_07_gdpr_privacy() {
       '#description' => t('Ensure the privacy policy accurately specifies the cookies that the site serves.'),
       'handbook_page' => [
         '#text' => t('Front page of site.'),
-        '#url' => $front_route,
+        '#url' => $checklist_routes["front_route"],
       ],
     ],
     'gdpr_testing' => [
@@ -43,7 +43,7 @@ function section_07_gdpr_privacy() {
       '#description' => t('Perform GDPR testing on the final hosting solution.'),
       'handbook_page' => [
         '#text' => t('Front page of site.'),
-        '#url' => $front_route,
+        '#url' => $checklist_routes["front_route"],
       ],
     ],
   ];

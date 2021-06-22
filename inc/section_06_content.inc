@@ -8,9 +8,9 @@
 use Drupal\Core\Url;
 
 /**
- * Generates are returns section 6 for launch_checklist.
+ * Generates and returns section 6 for launch_checklist.
  */
-function section_06_content() {
+function section_06_content($checklist_routes) {
 
   return [
     // Section 6 Content.
@@ -21,7 +21,7 @@ function section_06_content() {
       '#description' => t('Ensure that content redirects are in place.'),
       'handbook_page' => [
         '#text' => t('Redirects.'),
-        '#url' => $redirect,
+        '#url' => $checklist_routes["redirect"],
       ],
     ],
     'manage_content' => [

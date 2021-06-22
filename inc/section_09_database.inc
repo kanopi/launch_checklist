@@ -6,9 +6,9 @@
  */
 
 /**
- * Generates are returns section 9 for launch_checklist.
+ * Generates and returns section 9 for launch_checklist.
  */
-function section_09_database() {
+function section_09_database($checklist_routes) {
 
   return [
     // Section 9 Database.
@@ -26,8 +26,8 @@ function section_09_database() {
       '#title' => t('RealAES Module'),
       '#description' => t('For sites that contain sensitive data, ensure that the Real AES module is installed and backups are encrypted.'),
       'handbook_page' => [
-        '#text' => t( 'Real AES module' ),
-        '#url' => $real_aes,
+        '#text' => t('Real AES module'),
+        '#url' => $checklist_routes["real_aes"],
       ],
     ],
     'private_files_directory' => [

@@ -6,9 +6,9 @@
  */
 
 /**
- * Generates are returns section 10 for launch_checklist.
+ * Generates and returns section 10 for launch_checklist.
  */
-function section_10_theme() {
+function section_10_theme($checklist_routes) {
 
   return [
     // Section 10 Theme.
@@ -20,7 +20,7 @@ function section_10_theme() {
       '#description' => t('For responsive designs, check that the theme is responding properly at all resolutions and orientations, and that there are no visual issues.'),
       'handbook_page' => [
         '#text' => t('Front page of site.'),
-        '#url' => $front_route,
+        '#url' => $checklist_routes["front_route"],
       ],
     ],
     'custom_js' => [
