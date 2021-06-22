@@ -19,7 +19,7 @@ function section_03_forms($checklist_routes) {
       '#description' => t('Check all webforms for recipient email and test.'),
       'handbook_page' => [
         '#text' => t('Webform'),
-        '#url' => $checklist_routes["webform_route"],
+        '#url' => $checklist_routes["webform"],
       ],
     ],
     'confirmation' => [
@@ -27,7 +27,7 @@ function section_03_forms($checklist_routes) {
       '#description' => t('Check all webforms for thank you message'),
       'handbook_page' => [
         '#text' => t('Webform'),
-        '#url' => $checklist_routes["webform_route"],
+        '#url' => $checklist_routes["webform"],
       ],
     ],
     'spam' => [

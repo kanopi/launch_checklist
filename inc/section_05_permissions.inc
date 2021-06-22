@@ -17,7 +17,7 @@ function section_05_permissions($checklist_routes) {
     '#title' => t('User Permissions'),
     '#description' => t('<p>User Permission settings for the Drupal site.</p>'),
     'manager_permissions' => [
-      '#title' => t('Manager Permissions'),
+      '#title' => t('Manager Role Permissions'),
       '#description' => t('Ensure managers have the ability to manage users.'),
       'handbook_page' => [
         '#text' => t('Site User Roles'),
