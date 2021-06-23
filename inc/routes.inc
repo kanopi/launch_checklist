@@ -77,9 +77,9 @@ function routes() {
     $checklist_routes["unused_modules"] = Url::fromRoute('unused_modules.overview.projects.all');
   }
   // Webform.
-  $checklist_routes["webform_route"] = Url::fromUri('https://www.drupal.org/project/webform');
+  $checklist_routes["webform"] = Url::fromUri('https://www.drupal.org/project/webform');
   if ($moduleHandler->moduleExists('webform')) {
-    $checklist_routes["webform_route"] = Url::fromRoute('entity.webform.collection');
+    $checklist_routes["webform"] = Url::fromRoute('entity.webform.collection');
   }
   // XML Sitemap.
   $checklist_routes["xml_sitemap"] = Url::fromUri('https://www.drupal.org/project/xmlsitemap');
