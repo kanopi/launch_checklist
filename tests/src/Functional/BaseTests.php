@@ -112,7 +112,7 @@ class BaseTests extends BrowserTestBase {
       'edit-checklistapi-01-general-site-information-email' => '1',
     ], t('Save'));
     // Verify the item has been saved.
-    $session->pageTextContains('Launch checklist progress has been saved. 1 item changed. ');
+    $this->assertSession()->pageTextContains('Launch checklist progress has been saved. 1 item changed. ');
   }
 
 }
