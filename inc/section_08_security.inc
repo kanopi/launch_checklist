@@ -61,7 +61,7 @@ function section_08_security($checklist_routes) {
       '#description' => t('Ensure that block caching is turned on, if possible.'),
       'handbook_page' => [
         '#text' => t('Views'),
-        '#url' => Url::fromRoute('entity.view.collection'),
+        '#url' => $checklist_routes['views_ui'],
       ],
     ],
     'min_max_cache' => [
@@ -69,7 +69,7 @@ function section_08_security($checklist_routes) {
       '#description' => t('Ensure that the minimum/maximium cache lifetime are set if/as necessary.'),
       'handbook_page' => [
         '#text' => t('Views'),
-        '#url' => Url::fromRoute('entity.view.collection'),
+        '#url' => $checklist_routes['views_ui'],
       ],
     ],
     'unused_modules' => [
@@ -129,7 +129,7 @@ function section_08_security($checklist_routes) {
       '#description' => t('Ensure that views have defined permissions.'),
       'handbook_page' => [
         '#text' => t('Views'),
-        '#url' => Url::fromRoute('entity.view.collection'),
+        '#url' => $checklist_routes['views_ui'],
       ],
     ],
     'linux_permissions' => [

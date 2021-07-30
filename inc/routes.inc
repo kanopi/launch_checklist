@@ -76,6 +76,11 @@ function routes() {
   if ($moduleHandler->moduleExists('unused_modules')) {
     $checklist_routes["unused_modules"] = Url::fromRoute('unused_modules.overview.projects.all');
   }
+  // Views UI.
+  $checklist_routes["views_ui"] = Url::fromUri('https://www.drupal.org/docs/8/core/modules/views-ui');
+  if ($moduleHandler->moduleExists('views_ui')) {
+    $checklist_routes["views_ui"] = Url::fromRoute('entity.view.collection');
+  }
   // Webform.
   $checklist_routes["webform"] = Url::fromUri('https://www.drupal.org/project/webform');
   if ($moduleHandler->moduleExists('webform')) {
